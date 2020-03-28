@@ -20,6 +20,8 @@ Creating Repository:
 14. git stash
 15. git stash pop
 16. git revert "commit ids"
+17.git diff "commitid1" "commitid2"
+18.git diff HEAD .      (compare HEAD(commited remote of current branch) and .(current changes without staging/committing)
 
 1174070159
 

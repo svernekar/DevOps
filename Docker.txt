@@ -1,0 +1,21 @@
+Docker
+1.docker --version
+2.docker pull <image name>
+3.docker images
+4.docker run -it -d <imagename>
+5.docker ps
+6.docker ps -a
+7.docker exec -it <container id> bash
+8.exit
+9.docket stop <container id>
+10.docker kill <container id>
+11. docker rm <container id>
+11.docker rm -f <container id>
+11. docker rm -f $(sudo docker ps -a -q)
+12.docker rmi <image id>
+
+Docker:http://hub.docker.com
+vshreya12
+vshreya12$
+
+13.sudo docker commit <container id> <newimage name>
