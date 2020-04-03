@@ -1,0 +1,111 @@
+1.Go to VM findout the version of OS:
+command:
+cat /etc/*version
+2.sudo apt-get update
+Install Docker:
+3.sudo apt-get install docker.io
+4.sudo docker --version
+5.sudo docker pull ubuntu(imagename)
+6.sudo docker images
+7.sudo docker run -it -d ubuntu
+8.sudo docker ps
+9.sudo docker stop container-id
+10.sudo docker ps -a
+11.sudo docker exec -it container-id bash
+Now you are inside a container:
+sudo apt-get update
+to comeout of container :
+exit
+to stop :sudo docker stop container-id
+to kill :sudo kill  container-id
+to delete the container from system:sudo docker rm container-id
+to delete image from the system:sudo docker rmi image-id
+
+Now create docker-hub account:
+Docker:http://hub.docker.com
+vshreya12
+vshreya12$
+
+Now ,go to container make some changes and exit the container .Now commit the container using command :sudo docker commit container-id newnameforimage
+Verify by command:sudo docker images
+New image is created by name newnameforimage
+run and execute the above image
+install python:
+"""""""""""""""""""""""
+nstalling Python 3.7 on Ubuntu with Apt
+Installing Python 3.7 on Ubuntu with apt is a relatively straightforward process and will only take a few minutes:
+
+Start by updating the packages list and installing the prerequisites:
+
+sudo apt update
+sudo apt install software-properties-common
+Next, add the deadsnakes PPA to your sources list:
+
+sudo add-apt-repository ppa:deadsnakes/ppa
+When prompted press Enter to continue:
+
+Press [ENTER] to continue or Ctrl-c to cancel adding it.
+Once the repository is enabled, install Python 3.7 with:
+
+sudo apt install python3.7
+At this point, Python 3.7 is installed on your Ubuntu system and ready to be used. You can verify it by typing:
+
+python3.7 --version
+Python 3.7.3
+""""""""""""""""
+Pushing code to docker:
+exit
+sudo docker commit container-id vshreya12/newnameforimage
+sudo docker stop container-id
+sudo docker login
+sudo docker push vshreya12/newnameforimage
+
+**********************************
+Creating a docker file:
+
+Make a dir and and write the docker file.
+build the docker file:
+Go to dir where there is docker file type the below comand
+sudo docker build . -t image_with_dockerfile
+
+*************************************
+Docker Volumes:
+Bind mount
+sudo docker run -it -v /home/ubuntu/Desktop:/app -d ubuntu 
+sudo docker exec -it container-id bash
+
+Disadvantage:Path is os specific,if os changes path changes
+
+Docker Volume:
+sudo docker volume create test
+sudo docker run -it --mount source=test,targer=/app -d ubuntu
+sudo docker exec container-id bash
+Here in app folder if i create 2 files then everything is saved in test volume.Now if i run new container with source=test,target=/usr all the changes in the test will be copied to /usr innew contaier
+
+Docker Compose;Basically for micro services.
+Install docker compose ,refer link https://docs.docker.com/compose/install/
+check if its installed:
+sudo docker-compose --version
+create a dir:compose copy a yaml file content from the file(from above site) and paste in in newly created file with name docker-compose.yml,save the file
+now run command :sudo docker-compose up -d
+Container-Orechestartion-Docker Swarm
+sudo docker swarm init --adverise-addr=ipaddress
+after running the above command a command to join is displayed,copy this command and paste it on the worker
+sudo docker swarm join --token ....
+then on master run sudo docker node ls
+sudo docker swarm leave 
+sudo docker swarm leave --force ----->This is for master
+
+Create a services
+sudo doker service create --name apache --replica 5 -p 83:80 vshreya12/newnameforimage
+sudo docker service ls
+sudo docker service scale apache=2 ------->Only to replicas
+sudo docker service rm apache
+
+
+ 
+
+
+
+
+

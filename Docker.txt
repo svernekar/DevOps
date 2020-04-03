@@ -19,3 +19,7 @@ vshreya12
 vshreya12$
 
 13.sudo docker commit <container id> <newimage name>
+14 sudo docker push vshreya12/apache 
+
+Docker File:
+1.docker vshreya12  vshreya12$
